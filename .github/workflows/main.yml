@@ -22,6 +22,11 @@ jobs:
       - run: mkdir output
       - run: gitbook epub . ./output/typescript-book-${SHA}.epub
       - run: gitbook mobi . ./output/typescript-book-${SHA}.mobi
+      - name: upload epub artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: typescript-book.epub
+          path: output/typescript-book-${{ env.SHA }}.epub
       - name: upload mobi artifact
         uses: actions/upload-artifact@v1
         with:

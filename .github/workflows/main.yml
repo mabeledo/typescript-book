@@ -20,6 +20,7 @@ jobs:
       - run: sudo npm install -g gitbook-cli
       - run: gitbook install
       - run: mkdir output
+      - run: gitbook epub . ./output/typescript-book-${SHA}.epub
       - run: gitbook mobi . ./output/typescript-book-${SHA}.mobi
       - name: upload mobi artifact
         uses: actions/upload-artifact@v1
